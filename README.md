@@ -1,4 +1,4 @@
-#  Batch Alumni Directory
+#  Batch Alumni 
 A  backend project to manage and connect alumni with their batch members. This project allows users to register, login, and manage alumni profiles with secure authentication.
 
 ## Features
