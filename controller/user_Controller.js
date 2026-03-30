@@ -1,4 +1,5 @@
 const asyncHandler=require("express-async-handler");
+const jwt=require("jsonwebtoken");
 const bcrypt=require("bcrypt");
 const User=require("../model/user_Model");
 const register_User=asyncHandler(async(req,res)=>{
@@ -36,15 +37,32 @@ const login_User=asyncHandler(async(req,res)=>{
     }
     const user=await User.findOne({email: email.toLowerCase()});
     if (user && (await bcrypt.compare(password, user.password))) {
+        const accessToken = jwt.sign(
+            {
+                user: {
+                    id:user.id,
+                    name:user.name,
+                    email:user.email
+                }
+            },
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: "1d" }
+        );
+        res.cookie("token", accessToken, {
+            httpOnly:true,   
+            secure:false,    
+            sameSite:"strict",
+            maxAge:24*60*60*1000 
+        });
         res.status(200).json({
             message: "Login successful",
             user: {
-                id: user.id,
-                name: user.name,
-                email: user.email
+                id:user.id,
+                name:user.name,
+                email:user.email
             }
         });
-    } else {
+       }   else {
         res.status(401);
         throw new Error("Email or password is not valid");
     }

@@ -1,7 +1,7 @@
 const mongoose=require("mongoose");
 const db=async()=>{
     try{
-      const connect=await mongoose.connect(process.env.Connection_String);
+      const connect=await mongoose.connect(process.env.CONNECTION_STRING);
       console.log("Database Connected: ",connect.connection.host,connect.connection.name);
     }catch(err){
         console.log(err);

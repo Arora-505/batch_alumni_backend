@@ -1,7 +1,7 @@
 const asyncHandler=require("express-async-handler");
 const alumni=require("../model/alumniModel");
 const get_all_alumni=asyncHandler(async (req, res) => {
-  const alumniData = await alumni.find();
+  const alumniData = await alumni.find({ user_id: req.user.id });
   res.json(alumniData);
 });
 const get_alumni=asyncHandler(async(req,res)=>{
@@ -18,7 +18,6 @@ const get_alumni=asyncHandler(async(req,res)=>{
 });
 
 const add_alumni=asyncHandler(async(req,res)=>{
-    console.log("the request body is:",req.body);
     const{name,
         image,
         profession,
@@ -68,13 +67,8 @@ const add_alumni=asyncHandler(async(req,res)=>{
         bio,
         linkedin,
         github,
-        facebook,});
-        res.cookie("Alumni", alumniData._id.toString(),{
-        httpOnly:true,
-        secure:false, 
-        sameSite:"strict",
-        maxAge:24*60*60*1000 
-    });
+        facebook});
+        
     res.status(201).json(alumniData);
 });
 
