@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Batch Alumni Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">Batch CSE 20XX</a>
+            <nav class="navbar-menu">
+                <a href="index.html" class="navbar-link">Home</a>
+                <a href="index.html#find" class="navbar-link">Find</a>
+                <a href="index.html#notice" class="navbar-link">Notice</a>
+                <a href="index.html#updates" class="navbar-link">Updates</a>
+                <a href="login.html" class="navbar-btn active">Login</a>
+            </nav>
+            <button type="button" class="navbar-toggle" aria-label="Toggle menu">
+                <span class="navbar-toggle-bar"></span>
+                <span class="navbar-toggle-bar"></span>
+                <span class="navbar-toggle-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-card">
+            <h1 class="auth-title">Login</h1>
+            <p class="auth-subtitle">Sign in to your alumni account.</p>
+            <form class="auth-form" id="login-form" action="#" method="post" novalidate>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="auth-submit">Login</button>
+            </form>
+            <p class="auth-link-wrap">Don't have an account? <a href="register.html">Register</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-brand">Batch CSE 20XX Alumni</p>
+            <p class="footer-copy">&copy; 2025 Batch Alumni Directory. Frontend only.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

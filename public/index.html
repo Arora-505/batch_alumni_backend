@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Alumni Directory | Batch CSE 20XX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">Batch CSE 20XX</a>
+            <nav class="navbar-menu">
+                <a href="index.html" class="navbar-link active">Home</a>
+                <a href="#find" class="navbar-link">Find</a>
+                <a href="#notice" class="navbar-link">Notice</a>
+                <a href="login.html" class="navbar-btn">Login</a>
+            </nav>
+            <button type="button" class="navbar-toggle" aria-label="Toggle menu">
+                <span class="navbar-toggle-bar"></span>
+                <span class="navbar-toggle-bar"></span>
+                <span class="navbar-toggle-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <h1 class="hero-title">Batch CSE 20XX</h1>
+                <p class="hero-description">Stay connected with your batch mates. Find classmates, share updates, and keep the spirit alive.</p>
+            </div>
+        </section>
+
+        <section id="find" class="search-section">
+            <div class="search-container">
+                <h2 class="section-title">Find Alumni</h2>
+                <div class="search-controls">
+                    <div class="search-input-wrap">
+                        <input type="text" id="search-name" class="search-input" placeholder="Search by name..." autocomplete="off">
+                    </div>
+                    <div class="search-select-wrap">
+                        <select id="filter-city" class="search-select" aria-label="Filter by city">
+                            <option value="">All Cities</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="students-section">
+            <div class="students-container">
+                <div id="students-grid" class="students-grid"></div>
+                <p id="no-results" class="no-results" hidden>No alumni match your search. Try different filters.</p>
+            </div>
+        </section>
+
+        <section id="notice" class="notice-section">
+            <div class="notice-container">
+                <h2 class="section-title">Notice Board</h2>
+                <div class="notice-board">
+                    <article class="notice-card">
+                        <span class="notice-date">Feb 15, 2025</span>
+                        <h3 class="notice-title">Batch reunion 2025</h3>
+                        <p class="notice-text">Save the date for our annual batch reunion. Venue and details will be shared soon.</p>
+                    </article>
+                    <article class="notice-card">
+                        <span class="notice-date">Jan 28, 2025</span>
+                        <h3 class="notice-title">Alumni meet-up in Bangalore</h3>
+                        <p class="notice-text">Bangalore-based alumni are organising a casual meet-up this month. Check the group for details.</p>
+                    </article>
+                    <article class="notice-card">
+                        <span class="notice-date">Jan 10, 2025</span>
+                        <h3 class="notice-title">Directory update</h3>
+                        <p class="notice-text">Please update your profile and current city so we can keep the directory accurate.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Premium Profile Modal -->
+    <div id="profile-modal" class="profile-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+        <div class="profile-modal__backdrop"></div>
+        <div class="profile-modal__content">
+            <!-- Header Section with Gradient -->
+            <header class="profile-modal__header">
+                <button type="button" class="profile-modal-close profile-modal__close" aria-label="Close profile">&times;</button>
+                <div class="profile-modal__header-content">
+                    <img id="modal-image" class="profile-modal__image" src="" alt="" width="120" height="120">
+                    <div class="profile-modal__header-text">
+                        <h2 id="modal-name" class="profile-modal__name"></h2>
+                        <p id="modal-profession" class="profile-modal__profession"></p>
+                        <p id="modal-roll" class="profile-modal__roll"></p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Body Section -->
+            <div class="profile-modal__body">
+                <!-- Quick Info Grid -->
+                <section class="profile-modal__section">
+                    <div class="profile-modal__info-grid">
+                        <div class="profile-modal__info-item">
+                            <span class="profile-modal__info-label">Company</span>
+                            <span id="modal-company" class="profile-modal__info-value"></span>
+                        </div>
+                        <div class="profile-modal__info-item">
+                            <span class="profile-modal__info-label">Location</span>
+                            <span id="modal-current-location" class="profile-modal__info-value"></span>
+                        </div>
+                        <div class="profile-modal__info-item">
+                            <span class="profile-modal__info-label">Email</span>
+                            <a id="modal-email" class="profile-modal__info-value profile-modal__info-link" href=""></a>
+                        </div>
+                        <div class="profile-modal__info-item">
+                            <span class="profile-modal__info-label">Phone</span>
+                            <span id="modal-phone" class="profile-modal__info-value"></span>
+                        </div>
+                        <div class="profile-modal__info-item">
+                            <span class="profile-modal__info-label">Hometown</span>
+                            <span id="modal-hometown" class="profile-modal__info-value"></span>
+                        </div>
+                        <div class="profile-modal__info-item">
+                            <span class="profile-modal__info-label">Blood Group</span>
+                            <span id="modal-blood-group" class="profile-modal__info-value"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="profile-modal__section">
+                    <h3 class="profile-modal__section-title">Education</h3>
+                    <div class="profile-modal__detail-list">
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">University</span>
+                            <span id="modal-university" class="profile-modal__detail-value"></span>
+                        </div>
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">Department</span>
+                            <span id="modal-department" class="profile-modal__detail-value"></span>
+                        </div>
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">Batch</span>
+                            <span id="modal-batch" class="profile-modal__detail-value"></span>
+                        </div>
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">School</span>
+                            <span id="modal-school" class="profile-modal__detail-value"></span>
+                        </div>
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">College</span>
+                            <span id="modal-college" class="profile-modal__detail-value"></span> 
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Family Section -->
+                <section class="profile-modal__section">
+                    <h3 class="profile-modal__section-title">Family</h3>
+                    <div class="profile-modal__detail-list">
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">Parents</span>
+                            <span id="modal-parents-name" class="profile-modal__detail-value"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interests & Work Section -->
+                <section class="profile-modal__section">
+                    <h3 class="profile-modal__section-title">Interests & Work</h3>
+                    <div class="profile-modal__detail-list">
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">Interests</span>
+                            <span id="modal-interests" class="profile-modal__detail-value"></span>
+                        </div>
+                        <div class="profile-modal__detail-item">
+                            <span class="profile-modal__detail-label">Work Sector</span>
+                            <span id="modal-work-sector" class="profile-modal__detail-value"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section class="profile-modal__section">
+                    <h3 class="profile-modal__section-title">About</h3>
+                    <p id="modal-bio" class="profile-modal__bio"></p>
+                </section>
+
+                <!-- Social Buttons -->
+                <div class="profile-modal__social">
+                    <a id="modal-linkedin" class="profile-modal__social-btn profile-modal__social-btn--linkedin" href="#" aria-label="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a id="modal-github" class="profile-modal__social-btn profile-modal__social-btn--github" href="#" aria-label="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a id="modal-facebook" class="profile-modal__social-btn profile-modal__social-btn--facebook" href="#" aria-label="Facebook">
+                        <span>Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-brand">Batch CSE 20XX Alumni</p>
+            <p class="footer-copy">&copy; 2025 Batch Alumni Directory. Frontend only — no backend.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
