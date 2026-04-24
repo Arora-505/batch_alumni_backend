@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | BatchMate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">BatchMate RUET CSE</a>
+      <nav class="navbar-menu">
+        <a href="index.html" class="navbar-link">Directory</a>
+        <a href="profile.html" class="navbar-link active">My Profile</a>
+        <a href="find.html" class="navbar-link">Find</a>
+        <a href="notices.html" class="navbar-link">Notices</a>
+        <a href="updates.html" class="navbar-link">Updates</a>
+        <a href="#" class="navbar-btn ghost" data-logout>Logout</a>
+      </nav>
+      <button type="button" class="navbar-toggle" aria-label="Toggle menu">
+        <span class="navbar-toggle-bar"></span><span class="navbar-toggle-bar"></span><span class="navbar-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page container">
+    <h1>Build Your Student Profile</h1>
+    <p class="muted">Only name and email are required. Update anytime.</p>
+    <p id="profile-msg" class="alert" hidden></p>
+
+    <form id="photo-form" class="panel">
+      <h2>Profile Photo</h2>
+      <img id="profile-preview" class="avatar large" src="https://i.pravatar.cc/240?u=batchmate" alt="Profile preview">
+      <input type="file" id="photo" accept="image/*">
+      <button class="btn btn-primary" type="submit">Upload Photo</button>
+    </form>
+
+    <form id="profile-form" class="panel form-grid">
+      <label>Full name <input name="name" required></label>
+      <label>Email <input name="email" readonly></label>
+      <label>Blood group <input name="bloodGroup"></label>
+      <label>Hometown <input name="hometown"></label>
+      <label class="inline"><input type="checkbox" name="hideHometown"> Hide hometown from others</label>
+      <label>School name <input name="schoolName"></label>
+      <label>College name <input name="collegeName"></label>
+      <label>Father's name <input name="fatherName"></label>
+      <label class="inline"><input type="checkbox" name="hideFatherName"> Hide father's name</label>
+      <label>Mother's name <input name="motherName"></label>
+      <label class="inline"><input type="checkbox" name="hideMotherName"> Hide mother's name</label>
+      <label>Phone number <input name="phoneNumber"></label>
+      <label>Facebook URL <input name="facebookUrl"></label>
+      <label>LinkedIn URL <input name="linkedinUrl"></label>
+      <label>GitHub URL <input name="githubUrl"></label>
+      <label>Current city / country <input name="currentCityCountry"></label>
+      <label>Profession <input name="profession"></label>
+      <label>Desired job sector <input name="desiredJobSector"></label>
+      <label class="full">Bio (max 500) <textarea name="bio" maxlength="500"></textarea></label>
+      <label>Hobbies <input name="hobbies"></label>
+      <label>Passions <input name="passions"></label>
+      <div class="full">
+        <button class="btn btn-primary" type="submit">Save Profile</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

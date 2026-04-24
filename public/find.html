@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BatchMate Directory</title>
+    <title>Find Students | BatchMate</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,57 +17,36 @@
       <div class="navbar-container">
         <a href="index.html" class="navbar-logo">BatchMate RUET CSE</a>
         <nav class="navbar-menu">
-          <a href="index.html" class="navbar-link active">Directory</a>
+          <a href="index.html" class="navbar-link">Directory</a>
           <a href="profile.html" class="navbar-link">My Profile</a>
-          <a href="find.html" class="navbar-link">Find</a>
+          <a href="find.html" class="navbar-link active">Find</a>
           <a href="notices.html" class="navbar-link">Notices</a>
           <a href="updates.html" class="navbar-link">Updates</a>
           <a href="#" class="navbar-btn ghost" data-logout>Logout</a>
         </nav>
         <button type="button" class="navbar-toggle" aria-label="Toggle menu">
-          <span class="navbar-toggle-bar"></span>
-          <span class="navbar-toggle-bar"></span>
-          <span class="navbar-toggle-bar"></span>
+          <span class="navbar-toggle-bar"></span
+          ><span class="navbar-toggle-bar"></span
+          ><span class="navbar-toggle-bar"></span>
         </button>
       </div>
     </header>
 
-    <main class="page">
-      <section class="hero hero-dark">
-        <div class="container">
-          <h1>Student Directory</h1>
-          <p>
-            Discover all BatchMate profiles from RUET CSE in one smooth
-            experience.
-          </p>
-        </div>
-      </section>
-
-      <section class="container">
-        <div id="profile-grid" class="card-grid"></div>
-        <p id="directory-empty" class="empty" hidden>
-          No student profiles found yet.
-        </p>
-      </section>
+    <main class="page container">
+      <h1>Find Students</h1>
+      <form id="find-form" class="panel filter-grid">
+        <input name="name" placeholder="Search by name" />
+        <input name="city" placeholder="Filter by city" />
+        <input name="country" placeholder="Filter by country" />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <div id="find-grid" class="card-grid"></div>
+      <p id="find-empty" class="empty" hidden>No matching students found.</p>
     </main>
-
-    <div id="profile-modal" class="modal" hidden>
-      <div class="modal-card">
-        <button
-          type="button"
-          id="modal-close"
-          class="btn icon"
-          aria-label="Close"
-        >
-          ×
-        </button>
-        <div id="modal-body"></div>
-      </div>
-    </div>
 
     <script src="/config.js"></script>
     <script src="js/app.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/directory.js"></script>
+    <script src="js/find.js"></script>
   </body>
 </html>

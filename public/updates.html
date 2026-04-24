@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updates Feed | BatchMate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">BatchMate RUET CSE</a>
+      <nav class="navbar-menu">
+        <a href="index.html" class="navbar-link">Directory</a>
+        <a href="profile.html" class="navbar-link">My Profile</a>
+        <a href="find.html" class="navbar-link">Find</a>
+        <a href="notices.html" class="navbar-link">Notices</a>
+        <a href="updates.html" class="navbar-link active">Updates</a>
+        <a href="#" class="navbar-btn ghost" data-logout>Logout</a>
+      </nav>
+      <button type="button" class="navbar-toggle" aria-label="Toggle menu">
+        <span class="navbar-toggle-bar"></span><span class="navbar-toggle-bar"></span><span class="navbar-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page container">
+    <h1>Recent Updates Feed</h1>
+    <p class="muted">Latest 20 profile changes by students.</p>
+    <div id="updates-list" class="stack"></div>
+  </main>
+
+  <script src="/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/updates.js"></script>
+</body>
+</html>
